@@ -70,7 +70,10 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text("hello world"),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text("hello world"),
+                  ),
                 ],
               ),
               Column()
