@@ -8,33 +8,69 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Digital Publishing',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHome(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Digital Publishing',
+        theme: ThemeData(
+            // primarySwatch: Colors.blue,
+            primaryColor: Color(0xFF6b9531)),
+        home: MyHomePage());
   }
 }
 
-class MyHome extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
   @override
-  _MyHomeState createState() => _MyHomeState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomeState extends State<MyHome> {
+class _MyHomePageState extends State<MyHomePage> {
+  String title = 'Gema Insani Digital';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.adb,
-          color: Colors.white,
-        ),
-        title: Text(
-          "My Flutter App",
-          style: TextStyle(color: Colors.white),
-        ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 200.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 100),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    "Penyedia Buku Digital Islami",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              centerTitle: true,
+            ),
+            leading: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.menu),
+            ),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.person),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
