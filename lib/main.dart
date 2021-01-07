@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Digital Publishing',
         theme: ThemeData(
-            // primarySwatch: Colors.blue,
-            primaryColor: Color(0xFF6b9531)),
+          primarySwatch: Colors.blue,
+          // primaryColor: Color(0xFF6b9531),
+        ),
         home: MyHomePage());
   }
 }
@@ -23,55 +24,58 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String title = 'Gema Insani Digital';
+  // String title = 'Gema Insani Digital';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            expandedHeight: 200.0,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 100),
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 20,
+    return MaterialApp(
+      home: Scaffold(
+          // backgroundColor: Color(0xFF6b9531),
+          appBar: PreferredSize(
+            child: SafeArea(
+              child: Container(
+                color: Color(0xFF6b9531),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.menu),
                         color: Colors.white,
-                        fontWeight: FontWeight.w700,
                       ),
-                    ),
+                      Text(
+                        "GEMA INSANI DIGITAL",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.person),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
+                    ],
                   ),
-                  Text(
-                    "Penyedia Buku Digital Islami",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                    ),
-                  ),
+                ),
+              ),
+            ),
+            preferredSize: Size.fromHeight(100),
+          ),
+          body: ListView(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("hello world"),
                 ],
               ),
-              centerTitle: true,
-            ),
-            leading: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.menu),
-            ),
-            actions: [
-              IconButton(
-                icon: Icon(Icons.person),
-                onPressed: () {},
-              ),
+              Column()
             ],
-          ),
-        ],
-      ),
+          )),
     );
   }
 }
