@@ -11,9 +11,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Digital Publishing',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          // primaryColor: Color(0xFF6b9531),
-        ),
+            // primarySwatch: Colors.blue,
+            primaryColor: Color(0xFF6b9531)),
         home: MyHomePage());
   }
 }
@@ -24,61 +23,54 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // String title = 'Gema Insani Digital';
+  String title = 'Gema Insani Digital';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          // backgroundColor: Color(0xFF6b9531),
-          appBar: PreferredSize(
-            child: SafeArea(
-              child: Container(
-                color: Color(0xFF6b9531),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.menu),
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "GEMA INSANI DIGITAL",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white,
-                        ),
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.person),
-                        color: Colors.white,
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 200.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
+              centerTitle: true,
+              // background: Image.asset(
+              //   "assets/images/gi_digital.jpg",
+              //   fit: BoxFit.cover,
+              // ),
             ),
-            preferredSize: Size.fromHeight(100),
-          ),
-          body: ListView(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text("hello world"),
-                  ),
-                ],
+            leading: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.menu),
+            ),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.person),
+                onPressed: () {},
               ),
-              Column()
             ],
-          )),
+          ),
+          SliverFillRemaining(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 5),
+                  child: Text("hello world"),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
